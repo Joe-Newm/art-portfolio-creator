@@ -2,7 +2,7 @@ import { signOut } from "firebase/auth";
 import { auth, db, storage } from "../../firebaseConfig";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { ref, push, onValue, remove, update } from "firebase/database";
+import { ref, push, onValue, remove, update, get } from "firebase/database";
 import { deleteObject, ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
@@ -59,6 +59,14 @@ const submitPost = async (e) => {
 
       const downloadURL = await getDownloadURL(snapshot.ref);
 
+      //limit amount of posts
+      const postLimit = 100;
+      const snapshot2 = await get(ref(db, "posts"));
+
+      if (snapshot2.exists() && Object.keys(snapshot2.val()).length >= postLimit) {
+        alert("Post limit reached. You can't add more posts.");
+        return;
+      }
 
       await push(ref(db, 'posts'), {
         imageURL: downloadURL,
@@ -67,6 +75,7 @@ const submitPost = async (e) => {
         availability: available
       })
       console.log('posted image successfully')
+      alert("Artwork Posted Successfully!")
 
       // clear forms 
       setTitle('');
@@ -93,7 +102,7 @@ const submitPost = async (e) => {
       <div className="flex w-full justify-center container mx-auto pl-4 pr-4">
 
         <div className="h-20 mb-10 ">
-        <div className="flex flex-col  mt-10 w-200 mb-20">
+        <div className="flex flex-col  mt-10 max-w-200 mb-20">
 
           <h2 className="text-3xl border-b-2 mb-5">New Art Post</h2>
 
