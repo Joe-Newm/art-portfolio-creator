@@ -31,7 +31,7 @@ export default function About() {
         <h1 className=" border-b-2  mt-20 mb-10"> About </h1>
       </div>
       <div className="flex flex-col mb-24 gap-6 md:flex-row">
-        <img src={aboutImage} alt="portrait of Gray Risinger" className="w-60"></img>
+        <img src={aboutImage} alt="portrait of artist" className="w-60"></img>
         
       <div>
         <h2 className="mb-6">{header}</h2>

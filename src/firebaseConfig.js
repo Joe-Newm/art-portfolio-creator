@@ -9,21 +9,24 @@ import { getDatabase } from "firebase/database";
 // Your web app's Firebase configuration
 const firebaseConfig = {
 
-  apiKey: "AIzaSyCrliCc_VJ4T9xx_TwKy0O_9VpOkltVNdc",
+  apiKey: "AIzaSyA6qmB0KbXHNROVzHTeoTeQy7NxFzXEUS4",
 
-  authDomain: "art-portfolio-gray-59acb.firebaseapp.com",
+  authDomain: "art-portfolio-creator.firebaseapp.com",
 
-  projectId: "art-portfolio-gray-59acb",
+  databaseURL: "https://art-portfolio-creator-default-rtdb.firebaseio.com",
 
-  storageBucket: "art-portfolio-gray-59acb.firebasestorage.app",
+  projectId: "art-portfolio-creator",
 
-  messagingSenderId: "914360083247",
+  storageBucket: "art-portfolio-creator.firebasestorage.app",
 
-  appId: "1:914360083247:web:928283048f31ce01e537da",
+  messagingSenderId: "350049606091",
 
-  databaseURL: "https://art-portfolio-gray-59acb-default-rtdb.firebaseio.com/",
+  appId: "1:350049606091:web:a105630fb02b074aa47e4e",
+
+  measurementId: "G-F5HVF6G7CP"
 
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
