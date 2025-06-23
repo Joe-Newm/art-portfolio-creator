@@ -30,7 +30,11 @@ export default function Login() {
   return (
     <main>
       <section>
-        <form className="container mx-auto flex flex-col justify-center items-center min-h-screen gap-5" onSubmit={onLogin}>
+        <div className="container mx-auto flex flex-col justify-center mt-24 mb-24 text-center">
+          <h2>Welcome to the art portfolio creator test app</h2><br/>
+          <p className="text-center">The email is test@test.com and the password is test123. The database resets itself every 15 minutes.</p>
+        </div>
+        <form className="container mx-auto flex flex-col justify-center items-center  gap-5" onSubmit={onLogin}>
           <div className="flex flex-col">
             <label htmlFor="email-address">
               Email Address
