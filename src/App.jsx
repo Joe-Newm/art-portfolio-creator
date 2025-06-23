@@ -38,7 +38,7 @@ function App() {
   return (
 
     <div className="flex flex-col min-h-screen">
-      <Router>
+      <Router basename="/art-portfolio-creator">
         <ScrollToTop />
         <main className="flex-grow">
         <AppRoutes />
