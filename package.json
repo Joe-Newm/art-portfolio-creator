@@ -3,8 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-"homepage": "https://joe-newm.github.io/art-portfolio-creator/",
-
 "scripts": {
   "dev": "vite",
   "build": "vite build",
