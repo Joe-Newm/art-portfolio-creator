@@ -38,13 +38,13 @@ const { getStorage } = require("firebase-admin/storage");
 initializeApp();
 
 // Wipe Realtime Database
-exports.wipeDatabase = onSchedule("every 1 minutes", async () => {
+exports.wipeDatabase = onSchedule("every 15 minutes", async () => {
   await getDatabase().ref("/").remove();
   console.log("Realtime Database wiped.");
 });
 
 // Wipe Cloud Storage
-exports.wipeStorage = onSchedule("every 1 minutes", async () => {
+exports.wipeStorage = onSchedule("every 15 minutes", async () => {
   const [files] = await getStorage().bucket().getFiles();
   await Promise.all(files.map(file => file.delete()));
   console.log("Cloud Storage wiped.");
