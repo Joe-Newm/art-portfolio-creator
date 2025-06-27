@@ -35,7 +35,7 @@ export default function AppRoutes() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {location.pathname == "/Dashboard" ? <DashboardNav/>:<Nav />}
+      {location.pathname == "/Dashboard" || "/Login" ? <DashboardNav/>:<Nav />}
       <ScrollToTop />
       <main className="flex-grow">
         <Routes>
@@ -48,7 +48,7 @@ export default function AppRoutes() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
-      {location.pathname == "/Dashboard" ? <DashboardFooter/>:<Footer />}
+      {location.pathname == "/Dashboard" || "/Login" ? <DashboardFooter/>:<Footer />}
     </div>
   );
 }

@@ -70,7 +70,11 @@ useEffect(() => {
           }
         </li>
         <li>
+          {
+            auth.currentUser ?
         <button onClick={signout} className="btn h-12"> sign out </button>
+        : null
+          }
         </li>
       </ul>
     </div>
