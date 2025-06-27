@@ -6,13 +6,15 @@ import { initFlowbite } from 'flowbite';
   import logo from '../assets/logo.svg';
 import './DashboardNav.css';
 import '../pages/dashboard.css';
-import { signOut } from "firebase/auth";
+import { signOut, onAuthStateChanged } from "firebase/auth";
+
 
 
 export default function Nav() {
 
   // website info
   const [name, setName] = useState(null);
+  const [user, setUser] = useState(null);
 
   //fetch contact page info
   useEffect(() => {
@@ -25,6 +27,14 @@ export default function Nav() {
       console.log('The read failed: ' + errorObject.name);
     })
   }, []);
+
+
+useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+    setUser(firebaseUser);
+  });
+  return () => unsubscribe(); // clean up on unmount
+}, []);
 
     const signout = async () => {
       try {
@@ -60,7 +70,7 @@ useEffect(() => {
       <ul className="font-medium gap-4 md:gap-0 flex flex-col items-center p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-transparent  dark:border-gray-700">
         <li>
           {
-          auth.currentUser ?
+          user ?
             <Link
               to="/"
               className="btn ">
@@ -71,7 +81,7 @@ useEffect(() => {
         </li>
         <li>
           {
-            auth.currentUser ?
+            user ?
         <button onClick={signout} className="btn h-12"> sign out </button>
         : null
           }
