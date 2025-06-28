@@ -53,7 +53,7 @@ export default function Login() {
             </label>
             <input
               id="email-address"
-              className="border-2 w-100 h-10 pl-2 bg-white"
+              className="border-2 w-100 h-10 pl-2 !bg-white"
               name="email"
               type="email"
               required

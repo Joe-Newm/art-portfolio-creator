@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth, db } from "../firebaseConfig";
 import {useState, useEffect} from "react";
 import { ref, push, onValue, remove, update } from "firebase/database";
@@ -15,6 +15,7 @@ export default function Nav() {
   // website info
   const [name, setName] = useState(null);
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   //fetch contact page info
   useEffect(() => {
@@ -56,7 +57,7 @@ useEffect(() => {
   <div className="w-full flex flex-wrap items-center justify-between mx-auto h-full pl-4 pr-4">
 
         <div >
-        <Link to="/" className="text-[35px] md:text-[45px] whitespace-nowrap ">
+        <Link to="/Dashboard" className="text-[35px] md:text-[45px] whitespace-nowrap ">
             <img src={logo} alt="Logo" className="w-10  invert" />
         </Link>
         </div>
