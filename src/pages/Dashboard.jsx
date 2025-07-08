@@ -34,8 +34,8 @@ export default function Dashboard() {
 
   //change styling for just the dashboard page
   useEffect(() => {
-    // Set body background when Dashboard mounts
-    document.body.style.backgroundColor = '#F1F5F6'; // Tailwind's bg-gray-800
+    // Set body background when on dashboard
+    document.body.style.backgroundColor = '#F1F5F6';
     //document.body.style.color = 'white';
 
     // Cleanup when leaving Dashboard
